@@ -1,19 +1,80 @@
 doctype html
-html
+
+html(lang="en")
   head
-    title This web application was created to fulfill Web Technology module’s requirements and does not represent an actual company or service
-    link(rel="stylesheet", href="/styles/style.css")
-  body
-    header
-      h1 Volunteer Management App
-    main
-      section#events
-        h2 Events
-        ul#event-list
-          // Event items will be dynamically added here
-      section#volunteers
-        h2 Volunteers
-        ul#volunteer-list
-          // Volunteer items will be dynamically added here
-    footer
-      p © 2024 Volunteer Management App
+  
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title Volunteer Management App
+    link(rel="stylesheet", href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css")
+  body(style="background-color:darkblue;")
+    nav.navbar.navbar-expand-lg.navbar-light.bg-light
+      .container
+        a.navbar-brand(href="#") Volunteer Management App
+        button.navbar-toggler(type="button", data-bs-toggle="collapse", data-bs-target="#navbarNav", aria-controls="navbarNav", aria-expanded="false", aria-label="Toggle navigation")
+          span.navbar-toggler-icon
+        .collapse.navbar-collapse#navbarNav
+          ul.navbar-nav
+            li.nav-item
+              a.nav-link.active(href="#") Home
+            li.nav-item
+              a.nav-link(href="#") Events
+            li.nav-item
+              a.nav-link(href="#") Opportunities 
+              li.nav-item
+              a.nav-link(href="#") Sign in
+
+              include ../head.pug
+body 
+    .container.mt-5- 
+     div.container 
+      p(style="color:white; text-align:center; margin-top:30px") This web application was created to fulfill Web Technology module’s requirements and does not represent an actual company or service. 
+      div.images-row(style="display:flex;margin-bottom:30px;margin-top:30px;")
+        img(style="width:33.33%;height:auto")(src="https://www.norma.uz/img/16/a5/b51b799dd08bd341a19aa2ba78f3.jpg", alt="Изображение 1") 
+        img(style="width:33.33%;height:auto")(src="https://www.norma.uz/img/a5/bb/d58f990d956f6fb17b959d23eb8b.jpg", alt="Изображение 2") 
+        img(style="width:33.33%;height:auto")(src="https://www.snta.ru/upload/iblock/482/48253e68b713c6dd1d943302e52b31a5.jpeg", alt="Изображение 3") 
+    p#footer-textVolunteer(style="color:white; padding-left:65px;padding-right:65px;font-size:20px;") Events are gatherings or activities organized with the primary goal of contributing to a charitable cause or community service.<br> These events typically rely on the participation of individuals who offer their time, skills, and effort voluntarily to support the event's purpose. <br>Here is some information about volunteer events:
+   
+      h2(style="color:white;padding-left:65px; margin-top:40px")  List of volunteer events 
+      table.table.table-responsive.table-hover.table-striped.table-dark(style="padding-left:65px;padding-right:65px;")
+        thead
+          tr
+            th(scope="col") ID
+            th(scope="col") Event Name
+            th(scope="col") Event DateTime
+            th(scope="col") Venue
+            th(scope="col") Contact Phone
+            th(scope="col") Seat
+            th(scope="col") Actions
+        tbody
+          tr
+            td 1
+            td Example Event Name 1
+            td 2024-02-17 10:00
+            td Example Venue
+            td +1234567890
+            td 42
+            td
+              button.btn.btn-primary.btn-sm Update
+              button.btn.btn-danger.btn-sm Delete
+          tr
+            td 1
+            td Example Event Name 2
+            td 2024-02-17 10:00
+            td Example Venue
+            td +1234567890
+            td 42
+            td
+              button.btn.btn-primary.btn-sm Update
+              button.btn.btn-danger.btn-sm Delete
+
+
+
+    .container.mt-4
+      h1.mb-4 
+
+      // Your content here
+      
+
+    script(src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/js/bootstrap.bundle.min.js")
+
