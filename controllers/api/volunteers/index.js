@@ -10,6 +10,16 @@ const volunteers_controller = {
         res.status(201).json(
             volunteers_service.create(req, res)
         )
+    },
+    delete(req, res) {
+        const volunteers = volunteers_service.getById(req.params.id)
+        
+        if (volunteers) {
+            volunteers_service.delete(req.params.id)
+            res.status(204).send('Volunteers deleted successfully')
+        } else {
+            res.status(404).send('Volunteers not found')
+        }
     }
 }
 

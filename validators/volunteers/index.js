@@ -1,4 +1,5 @@
-const { body } = require('express-validator');
+const { body, param } = require('express-validator');
+const volunteers_service = require('../../services/volunteers')
 
 const addVolunteersValidation = () => {
   return [
@@ -19,6 +20,19 @@ const addVolunteersValidation = () => {
   ];
 };
 
-module.exports = {
-    addVolunteersValidation
+const deleteVolunteersValidation = () => {
+  return [
+    param('id').custom(async (id) => {
+      const exists = await volunteers_service.getById(id);
+      if (!exists) {
+        throw new Error('Volunteers not found');
+      }
+    })
+  ];
 };
+
+module.exports = {
+    addVolunteersValidation,
+    deleteVolunteersValidation
+};
+

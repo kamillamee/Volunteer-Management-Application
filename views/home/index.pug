@@ -41,7 +41,7 @@ h2(style="color:white;padding-left:65px; padding-right:65px; margin-top:50px; ma
         th(scope="col") Event Name
         th(scope="col") Event DateTime
         th(scope="col") Venue
-        th(scope="col") Contact Phone
+        th(scope="col") Contact 
         th(scope="col") Actions
         th
     tbody
@@ -56,11 +56,10 @@ h2(style="color:white;padding-left:65px; padding-right:65px; margin-top:50px; ma
               const volunteers = t.volunteers
               row.innerHTML = `
                 <td>${t.id}</td>
-                <td>${volunteers.eventName}</td>
+                <td>${volunteers.event}</td>
                 <td>${volunteers.eventDateTime}</td>
                 <td>${volunteers.venue}</td>
                 <td>${volunteers.contactPhone}</td>
-                <td>${volunteers.seat}</td>
                 <td>
                   <button class="btn btn-primary btn-sm">Edit</button>
                   <button class="btn btn-danger btn-sm" data-id="${t.id}">Delete</button>
@@ -87,6 +86,37 @@ h2(style="color:white;padding-left:65px; padding-right:65px; margin-top:50px; ma
             }
           });
       });
+
+
+  footer.footer(style="margin-top:150px;")
+  .container
+    .row
+      .col-md-4(style="font-size:14px;")
+        h5 Contact Us
+        p
+          | Address: 123 Charity Street, City, Country
+          br
+          | Phone: +123 456 789
+          br
+          | Email: info@yourcharity.org
+      .col-md-4(style="font-size:14px;")
+        h5 About Us
+        p 
+          | Your Charity Name is dedicated to [brief description of your mission or cause]. We strive to [briefly explain your goals and impact]. Join us in making a difference!
+      .col-md-4(style="font-size:14px;")
+        h5(style="padding-left:60px;") Connect With Us
+        ul.social-links(style="padding-left:70px;")
+          li
+            a(href="#") Facebook
+          li
+            a(href="#") Twitter
+          li
+            a(href="#") Instagram
+
+      p(style="margin-top:60px; font-size:15px;") © 2024 Volunteers Application. All rights reserved.
+      
+
+
 
 
     .container.mt-4
