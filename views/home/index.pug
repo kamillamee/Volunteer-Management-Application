@@ -15,11 +15,11 @@ html(lang="en")
             li.nav-item
               a.nav-link.active(href="#") Home
             li.nav-item
-              a.nav-link(href="#") Events
+              a.nav-link(href="#")
             li.nav-item
-              a.nav-link(href="#") Opportunities 
+              a.nav-link(href="#") 
             li.nav-item
-              a.nav-link(href="#") Sign in
+              a.nav-link(href="#") 
 
 
               include ../head.pug
@@ -33,7 +33,8 @@ body
         img(style="width:33.33%;height:auto")(src="https://media.licdn.com/dms/image/D5612AQEFIC4UKk7pbg/article-cover_image-shrink_720_1280/0/1685552785466?e=2147483647&v=beta&t=RAt5o8Akbioe57nQA6JlTgjPadAKcQ427SNyG2m9RoM", alt="Изображение 3") 
     p#footer-textVolunteer(style="color:white; padding-left:65px;padding-right:65px;font-size:15px; text-align:center;") Events are gatherings or activities organized with the primary goal of contributing to a charitable cause or community service.<br> These events typically rely on the participation of individuals who offer their time, skills, and effort voluntarily to support the event's purpose. <br>Here is some information about volunteer events:
    
-h2(style="color:white;padding-left:65px; padding-right:65px; margin-top:50px; margin-bottom:50px;  font-size:18px")  List of volunteer events 
+   
+h2(style="color:white;padding-left:65px; padding-right:65px; margin-top:30px; margin-bottom:30px;  font-size:20px")  List of volunteer events 
   table.table.table-responsive.table-hover.table-striped.table-dark
     thead
       tr
@@ -42,9 +43,14 @@ h2(style="color:white;padding-left:65px; padding-right:65px; margin-top:50px; ma
         th(scope="col") Event DateTime
         th(scope="col") Venue
         th(scope="col") Contact 
-        th(scope="col") Actions
-        th
+        th(scope="col") Action 
     tbody
+    .row.d-flex.align-items-center
+        .col-md-6
+        .col-md-6.text-end(style="padding-right:30px;")
+          a.btn.btn-success(style="padding-right:30px;padding-left:30px;margin-bottom:20px;")(href='/add', role='button') Add      
+
+
     script.
       document.addEventListener('DOMContentLoaded', function() {
         axios.get('/api/volunteers')
@@ -60,10 +66,11 @@ h2(style="color:white;padding-left:65px; padding-right:65px; margin-top:50px; ma
                 <td>${volunteers.eventDateTime}</td>
                 <td>${volunteers.venue}</td>
                 <td>${volunteers.contactPhone}</td>
-                <td>
-                  <button class="btn btn-primary btn-sm">Edit</button>
-                  <button class="btn btn-danger btn-sm" data-id="${t.id}">Delete</button>
-                </td>
+          <td>
+            <button class="btn btn-primary btn-sm" data-id="${t.id}" onclick="window.location.href='/update/${t.id}'">Update</button>
+            <button class="btn btn-danger btn-sm" data-id="${t.id}">Delete</button>
+          </td> 
+
               `;
               tableBody.appendChild(row);
             });

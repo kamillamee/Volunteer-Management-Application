@@ -11,7 +11,6 @@ const volunteers_service = {
     getById(id) {
         return volunteers.find(t => t.id == id)
     },    
-
     create(req, res) {
         let new_id = genRandId(4)
                 
@@ -27,6 +26,19 @@ const volunteers_service = {
         writeToFile(volunteers)
         
         return new_volunteers
+    },
+    update(id, updateData){
+        const volunteersIndex = volunteers.findIndex(t => t.id == id)
+
+        if (volunteersIndex === -1) {
+            return null
+        }
+
+        volunteers[volunteersIndex].volunteers = { ...volunteers[volunteersIndex].volunteers, ...updateData }
+
+        writeToFile(volunteers)
+
+        return volunteers[volunteersIndex]
     },
     delete(id) {
     const index = volunteers.findIndex(u => u.id == id)

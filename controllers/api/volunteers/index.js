@@ -11,6 +11,15 @@ const volunteers_controller = {
             volunteers_service.create(req, res)
         )
     },
+    update(req, res) {
+        const volunteers = volunteers_service.update(req.params.id, req.body)
+        
+        if (volunteers) {
+            res.json(volunteers)
+        } else {
+            res.status(404).send('Volunteers not found')
+        }
+    },
     delete(req, res) {
         const volunteers = volunteers_service.getById(req.params.id)
         
@@ -24,3 +33,4 @@ const volunteers_controller = {
 }
 
 module.exports = volunteers_controller
+
