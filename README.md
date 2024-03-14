@@ -10,6 +10,8 @@ The application can then be executed by typing (node server.js) into the termina
 Link GitHub repository:
 https://github.com/kamillamee/Volunteer-Management-Application.git
 
+My application url: http://localhost:3000/
+
 The project files are organized as it recommended:
 
 1. app.js: Main entrance point of the application.
